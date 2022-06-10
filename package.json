@@ -1,0 +1,27 @@
+{
+  "name": "socket-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KunerRick/node-socket-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KunerRick/node-socket-test/issues"
+  },
+  "homepage": "https://github.com/KunerRick/node-socket-test#readme",
+  "dependencies": {
+    "protobufjs": "^6.11.3"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.27.1",
+    "@typescript-eslint/parser": "^5.27.1",
+    "eslint": "^8.17.0"
+  }
+}
