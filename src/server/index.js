@@ -30,10 +30,12 @@ const server = tcpListen({ port, keepAlive: true }, (socket) => {
 
     socket.on("data", (data) => {
         //TODO: 根据需求进行处理,比如接收到文件内容，以及一些消息
-        let newArr = Buffer.allocUnsafe(tempData.length + data.length);
-        tempData.copy(newArr, 0)
-        data.copy(newArr, tempData.length)
-        tempData = newArr
+        // let newArr = Buffer.allocUnsafe(tempData.length + data.length);
+        // tempData.copy(newArr, 0)
+        // data.copy(newArr, tempData.length)
+        // tempData = newArr
+        console.log("收到数据：", data.toString())
+        socket.write(data)
     })
 
     socket.on("error", (err) => {
