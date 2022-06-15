@@ -2,6 +2,7 @@
 
 const { tcpListen } = require('./socketHelper');
 const { Buffer } = require("buffer")
+const { Request, Response } = require("../../demo/bundle")
 const port = 8100
 const keepAlive = true
 
@@ -34,8 +35,18 @@ const server = tcpListen({ port, keepAlive: true }, (socket) => {
         // tempData.copy(newArr, 0)
         // data.copy(newArr, tempData.length)
         // tempData = newArr
-        console.log("收到数据：", data.toString())
-        socket.write(data)
+        console.log("收到数据：", data)
+        const reqData = Request.decodeDelimited(data)
+
+
+        const res = Response.create({
+            cmd1: 0,
+            cmd2: 1,
+            code: 200,
+            data: reqData.data || ''
+        })
+
+        socket.write(Response.encodeDelimited(res).finish())
     })
 
     socket.on("error", (err) => {
